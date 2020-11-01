@@ -1,7 +1,9 @@
 ext {
 
     libraries = [
-            "network"       : ":libraries:network"
+            "network"       : ":libraries:network",
+            "abstraction"   : ":libraries:abstraction",
+            "data"          : ":data"
     ]
 
 }
