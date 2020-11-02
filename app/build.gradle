@@ -24,6 +24,10 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
 }
 
 dependencies {
@@ -33,6 +37,33 @@ dependencies {
     implementation rootProject.ext.misc.appCompat
     implementation rootProject.ext.misc.coreKtx
     implementation rootProject.ext.misc.constraintLayout
+
+    // lifecycle
+    implementation rootProject.ext.misc.liveData
+    implementation rootProject.ext.misc.viewModel
+
+    // coroutines
+    implementation rootProject.ext.misc.coroutines
+    implementation rootProject.ext.misc.coroutinesAndroid
+
+    // design
+    implementation rootProject.ext.misc.material
+
+    // glide
+    implementation rootProject.ext.image.glide
+    kapt rootProject.ext.image.glideCompiler
+
+    // dependenciesInjection
+    implementation rootProject.ext.misc.koin
+    implementation rootProject.ext.misc.koinViewModel
+
+    // library module
+    implementation project(rootProject.ext.libraries.network)
+    implementation project(rootProject.ext.libraries.abstraction)
+    implementation project(rootProject.ext.libraries.data)
+
+    // feature module
+    implementation project(rootProject.ext.features.home)
 
     testImplementation rootProject.ext.testing.junit
     androidTestImplementation rootProject.ext.testing.extJunit
