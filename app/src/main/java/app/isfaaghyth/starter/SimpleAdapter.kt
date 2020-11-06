@@ -1,10 +1,10 @@
 package app.isfaaghyth.starter
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.isfaaghyth.starter.databinding.ItemListSimpleBinding
+import com.utsman.abstraction.extensions.inflate
 import com.utsman.abstraction.extensions.loadUrl
 import com.utsman.data.model.Photo
 
@@ -26,7 +26,7 @@ class SimpleAdapter : RecyclerView.Adapter<SimpleAdapter.SimpleViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_simple, parent, false)
+        val view = parent inflate R.layout.item_list_simple
         return SimpleViewHolder(view)
     }
 

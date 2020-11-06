@@ -1,6 +1,13 @@
 apply from: "$rootDir/common.gradle"
 
+android {
+    buildFeatures {
+        viewBinding true
+    }
+}
+
 dependencies {
+    implementation rootProject.ext.misc.material
     implementation rootProject.ext.image.glide
     kapt rootProject.ext.image.glideCompiler
 }
