@@ -3,7 +3,7 @@ package app.isfaaghyth.home.domain
 import com.utsman.abstraction.extensions.fetch
 import com.utsman.abstraction.extensions.stateOf
 import com.utsman.data.model.Photo
-import com.utsman.data.repository.PhotosRepository
+import com.utsman.data.repository.photo.PhotosRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

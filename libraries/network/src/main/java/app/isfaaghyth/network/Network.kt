@@ -1,5 +1,6 @@
 package app.isfaaghyth.network
 
+import com.utsman.abstraction.extensions.debugMode
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,13 +20,21 @@ object Network {
     }
 
     private fun okHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-            .retryOnConnectionFailure(true)
-            .addInterceptor(createLoggingInterceptor())
-            .pingInterval(TIME_OUT, TimeUnit.SECONDS)
-            .readTimeout(TIME_OUT, TimeUnit.SECONDS)
-            .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
-            .build()
+
+
+
+        return OkHttpClient.Builder().apply {
+            retryOnConnectionFailure(true)
+            pingInterval(TIME_OUT, TimeUnit.SECONDS)
+            readTimeout(TIME_OUT, TimeUnit.SECONDS)
+            connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+
+            debugMode {
+                //Show logging interceptor only in DEBUG mode
+                addInterceptor(createLoggingInterceptor())
+            }
+
+        }.build()
     }
 
     private fun createLoggingInterceptor(): HttpLoggingInterceptor {

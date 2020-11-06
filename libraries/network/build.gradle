@@ -5,4 +5,5 @@ dependencies {
     implementation rootProject.ext.network.loggingInterceptor
     implementation rootProject.ext.network.okHttp
     implementation rootProject.ext.network.retrofit
+    implementation project(rootProject.ext.libraries.abstraction)
 }

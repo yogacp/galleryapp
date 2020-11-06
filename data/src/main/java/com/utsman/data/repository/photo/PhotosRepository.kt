@@ -1,4 +1,4 @@
-package com.utsman.data.repository
+package com.utsman.data.repository.photo
 
 import com.utsman.abstraction.state.ResultState
 import com.utsman.data.model.Photo

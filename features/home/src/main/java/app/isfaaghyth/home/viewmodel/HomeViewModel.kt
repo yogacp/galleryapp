@@ -7,8 +7,7 @@ import app.isfaaghyth.home.domain.HomeUseCase
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val useCase: HomeUseCase) : ViewModel() {
-    val photo = useCase.resultPhoto
-        .asLiveData(viewModelScope.coroutineContext)
+    val photo = useCase.resultPhoto.asLiveData(viewModelScope.coroutineContext)
 
     fun getPhoto() = viewModelScope.launch {
         useCase.getPhoto(this)
