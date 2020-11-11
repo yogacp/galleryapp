@@ -1,5 +1,6 @@
 package app.isfaaghyth.starter
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -11,6 +12,7 @@ import com.utsman.abstraction.extensions.loadUrl
 import com.utsman.abstraction.extensions.setup
 import com.utsman.abstraction.extensions.toast
 import com.utsman.abstraction.state.ResultState
+import com.utsman.data.constant.AppConstant
 import com.utsman.data.model.Photo
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -43,7 +45,9 @@ class MainActivity : AppCompatActivity() {
                 binding.imgItem.loadUrl(url = photo.urls.small, id = photo.id)
             },
             {
-                toast("Clicked")
+                val intent = Intent(context, ShowFullImageActivity::class.java)
+                intent.putExtra(AppConstant.INTENT_KEY.IMAGE_ID, it.id)
+                startActivity(intent)
             },
             layoutManager
         )

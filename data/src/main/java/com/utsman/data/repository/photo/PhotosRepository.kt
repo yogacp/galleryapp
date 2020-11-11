@@ -5,4 +5,5 @@ import retrofit2.Response
 
 interface PhotosRepository {
     suspend fun getPhotos(page: Int): Response<List<Photo>>
+    suspend fun getPhoto(imageId: String): Response<Photo>
 }

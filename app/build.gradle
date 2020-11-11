@@ -28,6 +28,16 @@ android {
         viewBinding true
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // to enable experimental coroutine
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
 }
 
 dependencies {

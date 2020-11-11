@@ -20,6 +20,6 @@ interface NetworkServices {
     fun photo(
         @Path("id") id: String,
         @Query("client_id") clientId: String = RestConstant.CLIENT_ID
-    ): Photo
+    ): Deferred<Response<Photo>>
 
 }

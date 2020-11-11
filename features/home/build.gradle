@@ -2,6 +2,7 @@ apply from: "$rootDir/common.gradle"
 
 dependencies {
     implementation rootProject.ext.network.retrofit
+    implementation rootProject.ext.misc.paging2
     implementation project(rootProject.ext.libraries.network)
     implementation project(rootProject.ext.libraries.abstraction)
     implementation project(rootProject.ext.libraries.data)

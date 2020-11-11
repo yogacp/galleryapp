@@ -11,9 +11,17 @@ class PhotoRepositoryImpl(
     private val services: NetworkServices,
     private val dispatcher: DispatcherProvider
 ) : PhotosRepository {
+
     override suspend fun getPhotos(page: Int): Response<List<Photo>> {
         return withContext(dispatcher.io()) {
             async { services.photos(page).await() }
         }.await()
     }
+
+    override suspend fun getPhoto(imageId: String): Response<Photo> {
+        return withContext(dispatcher.io()) {
+            async { services.photo(imageId).await() }
+        }.await()
+    }
+
 }

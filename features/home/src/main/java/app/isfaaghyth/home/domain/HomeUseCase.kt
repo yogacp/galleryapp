@@ -11,7 +11,7 @@ class HomeUseCase(private val repository: PhotosRepository) {
     val resultPhoto = liveDataOf<List<Photo>>()
     var page = 1
 
-    suspend fun getPhoto(scope: CoroutineScope) = scope.launch {
+    suspend fun getPhotos(scope: CoroutineScope) = scope.launch {
         val data = fetchData { repository.getPhotos(page) }
         resultPhoto.postValue(data)
     }
