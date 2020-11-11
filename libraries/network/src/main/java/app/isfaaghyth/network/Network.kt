@@ -1,5 +1,6 @@
 package app.isfaaghyth.network
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.utsman.abstraction.extensions.debugMode
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,15 +15,13 @@ object Network {
     fun builder(url: String = ""): Retrofit {
         return Retrofit.Builder()
             .baseUrl(url)
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient())
             .build()
     }
 
     private fun okHttpClient(): OkHttpClient {
-
-
-
         return OkHttpClient.Builder().apply {
             retryOnConnectionFailure(true)
             pingInterval(TIME_OUT, TimeUnit.SECONDS)

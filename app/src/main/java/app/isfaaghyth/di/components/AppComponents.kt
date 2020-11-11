@@ -1,5 +1,6 @@
 package app.isfaaghyth.di.components
 
+import app.isfaaghyth.di.module.appModule
 import app.isfaaghyth.home.di.homeViewModelModule
 import com.utsman.data.di.repositoryModule
 import com.utsman.data.di.networkModule
@@ -10,6 +11,12 @@ import org.koin.core.module.Module
  * Android Engineer
  */
 val appComponents: List<Module> = listOf(
+    /**
+     * Abstraction
+     */
+    appModule,
+
+
     /**
      * Data Module
      */

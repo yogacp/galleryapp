@@ -1,7 +1,7 @@
 package app.isfaaghyth.starter
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import app.isfaaghyth.home.viewmodel.HomeViewModel
@@ -16,20 +16,27 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainBinding: ActivityMainBinding
-    private val simpleAdapter = SimpleAdapter()
+    private lateinit var binding: ActivityMainBinding
     private val homeViewModel: HomeViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainBinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(mainBinding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setupData()
+        setupSwipeRefresh()
+    }
+
+    private fun setupSwipeRefresh() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            setupData()
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     private fun setupRecyclerView(photos: List<Photo>) {
         val layoutManager = GridLayoutManager(this, 2)
-        mainBinding.rvMain.setup(
+        binding.rvMain.setup(
             photos,
             ItemListSimpleBinding::class.java,
             { binding, photo ->
@@ -56,6 +63,9 @@ class MainActivity : AppCompatActivity() {
                     is ResultState.Error -> {
                         val throwable = it.throwable
                         toast("error: ${throwable?.message}")
+                    }
+                    is ResultState.Message -> {
+                        toast("Message: ${it.msg}")
                     }
                     is ResultState.Success -> {
                         toast("success")
