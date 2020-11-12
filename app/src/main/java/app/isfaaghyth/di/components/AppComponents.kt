@@ -1,6 +1,8 @@
 package app.isfaaghyth.di.components
 
+import app.isfaaghyth.di.module.appModule
 import app.isfaaghyth.home.di.homeViewModelModule
+import app.isfaaghyth.imagedetail.di.imageDetailModule
 import com.utsman.data.di.repositoryModule
 import com.utsman.data.di.networkModule
 import org.koin.core.module.Module
@@ -11,6 +13,12 @@ import org.koin.core.module.Module
  */
 val appComponents: List<Module> = listOf(
     /**
+     * Abstraction
+     */
+    appModule,
+
+
+    /**
      * Data Module
      */
     networkModule,
@@ -20,5 +28,6 @@ val appComponents: List<Module> = listOf(
     /**
      * Feature Module
      */
-    homeViewModelModule
+    homeViewModelModule,
+    imageDetailModule
 )

@@ -16,6 +16,7 @@ ext {
             "loggingInterceptor"        : "com.squareup.okhttp3:logging-interceptor:3.12.5",
             "okHttp"                    : "com.squareup.okhttp3:okhttp:3.12.5",
             "retrofit"                  : "com.squareup.retrofit2:retrofit:2.6.0",
+            "retrofit2CoroutinesAdapter": "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2",
     ]
 
     image = [
@@ -36,6 +37,8 @@ ext {
             "material"                  : "com.google.android.material:material:1.2.1",
             "liveData"                  : "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0",
             "viewModel"                 : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0",
+            "swipeRefresh"              : "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0",
+            "paging2"                   : "androidx.paging:paging-runtime:2.1.2",
     ]
 
     testing = [

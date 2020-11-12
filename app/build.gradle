@@ -28,6 +28,16 @@ android {
         viewBinding true
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // to enable experimental coroutine
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
 }
 
 dependencies {
@@ -37,6 +47,8 @@ dependencies {
     implementation rootProject.ext.misc.appCompat
     implementation rootProject.ext.misc.coreKtx
     implementation rootProject.ext.misc.constraintLayout
+    implementation rootProject.ext.misc.swipeRefresh
+    implementation rootProject.ext.misc.paging2
 
     // lifecycle
     implementation rootProject.ext.misc.liveData

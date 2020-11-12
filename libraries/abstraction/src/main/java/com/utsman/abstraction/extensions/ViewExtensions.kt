@@ -14,6 +14,10 @@ infix fun ViewGroup.inflate(layoutResId: Int): View = LayoutInflater.from(contex
 
 fun Context.toast(msg: String?, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, msg, duration).show()
 
+fun View.setVisibleIf(condition: Boolean) {
+    visibility = if (condition) View.VISIBLE else View.GONE
+}
+
 fun <T: ViewBinding, ITEM> RecyclerView.setup(
     items: List<ITEM>,
     bindingClass: Class<T>,

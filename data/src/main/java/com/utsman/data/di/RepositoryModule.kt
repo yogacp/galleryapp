@@ -10,7 +10,7 @@ import org.koin.dsl.module
  * Android Engineer
  */
 private fun Scope.providePhotoRepository(): PhotosRepository {
-    return PhotoRepositoryImpl(get())
+    return PhotoRepositoryImpl(get(), get())
 }
 
 val repositoryModule = module {

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Unsplash Gallery</string>
+    <string name="photo_from">Photo from %1$s</string>
 </resources>
